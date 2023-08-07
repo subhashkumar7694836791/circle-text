@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *
+    {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    }
+    html,body
+    {
+    height:100%;
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+
+    svg{
+        height: 50%;
+        width: 23%;
+        border-radius: 50%;
+        /* background-color: orange; */
+        animation: run 5s linear infinite;
+        font-size: 3vw;
+    }
+    textPath{
+        font-size: 5vw;
+        font-weight: 900;
+        stroke: rgb(16, 242, 155);
+    }
+    @keyframes run {
+        0%{
+            rotate: 0;
+        }
+        100%{
+            rotate: 360deg;
+        }
+    }
+</style>
+<body>
+    
+     <svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" 
+     xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
+     <title>circular text path</title>
+     <defs>
+        <path id="textcircle" d="M250,400 a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" transform="rotate(12,250,250)" />
+     </defs>
+  <g  class="textcircle">
+<text textlength="1000">
+    <textpath xlink:href="#textcircle" aria-label="CSS & SVG are awespme" textlength="1000">
+    Shivam jatav Sundram jatav Ankit jatav Abhay gautam vikash baghel Alok rathor Subhash kumar
+
+    </textpath>
+</text>
+
+  </g>
+     </svg>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"
+        integrity="sha512-cOH8ndwGgPo+K7pTvMrqYbmI8u8k6Sho3js0gOqVWTmQMlLIi6TbqGWRTpf1ga8ci9H3iPsvDLr4X7xwhC/+DQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+     <script src="script.js">
+        gsap.from("svg",{
+    opacity:0,
+    strokeDasharray:300,
+    strokeDashOffset:0,
+    duration:4,
+    delay:.2,
+    ease:Expo.easeInOut,
+    
+
+    });
+gsap.to("svg g ",{
+  rotate:360
+    
+
+    });
+     </script>
+</body>
+</html>
